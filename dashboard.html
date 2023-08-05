@@ -1,0 +1,1204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>explainerdashboard</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+<div><H1>Model Explainer</H1></div><ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item" role="presentation">
+    <button class="nav-link active" id="myTab0-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab0" role="tab"
+    aria-selected="true" aria-controls="myTab0">Feature Importances</button>
+</li>
+
+<li class="nav-item" role="presentation">
+    <button class="nav-link" id="myTab1-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab1" role="tab"
+    aria-selected="false" aria-controls="myTab1">Classification Stats</button>
+</li>
+
+<li class="nav-item" role="presentation">
+    <button class="nav-link" id="myTab2-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab2" role="tab"
+    aria-selected="false" aria-controls="myTab2">Individual Predictions</button>
+</li>
+
+<li class="nav-item" role="presentation">
+    <button class="nav-link" id="myTab3-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab3" role="tab"
+    aria-selected="false" aria-controls="myTab3">What if...</button>
+</li>
+
+<li class="nav-item" role="presentation">
+    <button class="nav-link" id="myTab4-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab4" role="tab"
+    aria-selected="false" aria-controls="myTab4">Feature Dependence</button>
+</li>
+
+</ul>
+
+<div class="tab-content" id="myTabContent">
+
+
+<div class="tab-pane active" id="myTab0"
+     role="tabpanel" aria-labelledby="myTab0-tab"> <div></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Feature Importances</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="22c40bb8-e511-4c69-9a9b-579a60629157" class="plotly-graph-div" style="height:1700px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("22c40bb8-e511-4c69-9a9b-579a60629157")) {                    Plotly.newPlot(                        "22c40bb8-e511-4c69-9a9b-579a60629157",                        [{"hoverinfo":"text","orientation":"h","x":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.00185920756431864,0.0019009770720588356,0.00212349736985292,0.0022536831475927633,0.0022694626567183415,0.0022767632049417335,0.002284791937269874,0.0024349270514787648,0.0024558459339669133,0.0024612320953934313,0.002481695182326227,0.0026049217757097465,0.002782032199485377,0.0029236254913719306,0.0029867717313264365,0.0033191494237974,0.0033637460395794616,0.003477627821084997,0.0036736088580057885,0.003759590287759913,0.004152249175529331,0.004272323187813257,0.0052117543727657305,0.005237076226108455,0.005493251121535714,0.0055083426154884105,0.005902403839705817,0.005968905556701317,0.006270662290839441,0.007193645256816586,0.007326158340055697,0.007532666845084569,0.007574906358007398,0.008149725801245533,0.00860285738530034,0.008625792459681099,0.008642333513106476,0.009692555863808515,0.009925719390389895,0.009985481344981067,0.010278490638518004,0.010533326532210476,0.011843985148291072,0.012035925017601415,0.01427262641648423,0.016433852167627983,0.016850555459698827,0.019491502004000728,0.020920445812965455,0.021828229808476055,0.029790074842603046,0.033349477123283136],"y":["75. TrafficType_8","74. TrafficType_7","73. Browser_7","72. Month_Feb","71. Browser_9","70. Browser_10","69. Month_June","68. Browser_11","67. Browser_12","66. OperatingSystems_7","65. OperatingSystems_5","64. Month_Jul","63. TrafficType_9","62. OperatingSystems_6","61. TrafficType_12","60. TrafficType_5","59. TrafficType_14","58. TrafficType_6","57. TrafficType_16","56. TrafficType_17","55. TrafficType_18","54. TrafficType_19","53. Month_aug","52. Region_9","51. Region_5","50. TrafficType_10","49. TrafficType_20","48. Browser_3","47. OperatingSystems_8","46. Region_8","45. Browser_5","44. VisitorType_Other","43. Informational_Duration","42. Browser_8","41. Browser_13","40. SpecialDay","39. Month_Aug","38. TrafficType_13","37. TrafficType_15","36. VisitorType_New_Visitor","35. VisitorType_Returning_Visitor","34. Administrative_Duration","33. OperatingSystems_4","32. ProductRelated_Duration","31. Browser_6","30. TrafficType_11","29. Month_Dec","28. Region_4","27. Browser_1","26. Month_Sep","25. Region_2","24. Month_Oct","23. BounceRates","22. Region_6","21. Region_7","20. Informational","19. TrafficType_1","18. OperatingSystems_3","17. Browser_4","16. TrafficType_4","15. TrafficType_3","14. Month_May","13. OperatingSystems_2","12. OperatingSystems_1","11. Month_Mar","10. ProductRelated","9. Region_3","8. Browser_2","7. TrafficType_2","6. Region_1","5. ExitRates","4. Weekend","3. Month_Nov","2. Administrative","1. PageValues"],"type":"bar"}],                        {"plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Average impact on predicted Revenue<br>(mean absolute SHAP value)"},"template":{"data":{"scatter":[{"type":"scatter"}]}},"yaxis":{"automargin":true},"xaxis":{"automargin":true,"title":{"text":""}},"height":1700,"margin":{"b":40,"l":203,"pad":4,"r":40,"t":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+<div></div>
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    
+</div>
+
+<div class="tab-pane " id="myTab1"
+     role="tabpanel" aria-labelledby="myTab1-tab"> <div></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Model performance metrics</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">metric</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accuracy</td>
+      <td>0.86</td>
+    </tr>
+    <tr>
+      <td>precision</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <td>recall</td>
+      <td>0.333</td>
+    </tr>
+    <tr>
+      <td>f1</td>
+      <td>0.364</td>
+    </tr>
+    <tr>
+      <td>roc_auc_score</td>
+      <td>0.688</td>
+    </tr>
+    <tr>
+      <td>pr_auc_score</td>
+      <td>0.477</td>
+    </tr>
+    <tr>
+      <td>log_loss</td>
+      <td>2.323</td>
+    </tr>
+
+  </tbody>
+</table>
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Confusion Matrix</h3><h6 class="card-subtitle">How many false positives and false negatives?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="39439fbd-ce72-41f7-bc84-3b1313827397" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("39439fbd-ce72-41f7-bc84-3b1313827397")) {                    Plotly.newPlot(                        "39439fbd-ce72-41f7-bc84-3b1313827397",                        [{"colorscale":[[0.0,"rgb(247,251,255)"],[0.125,"rgb(222,235,247)"],[0.25,"rgb(198,219,239)"],[0.375,"rgb(158,202,225)"],[0.5,"rgb(107,174,214)"],[0.625,"rgb(66,146,198)"],[0.75,"rgb(33,113,181)"],[0.875,"rgb(8,81,156)"],[1.0,"rgb(8,48,107)"]],"hoverinfo":"skip","showscale":false,"x":[" 0"," 1"],"y":[" 0"," 1"],"z":[[82.0,6.0],[8.0,4.0]],"zmax":130,"zmin":0,"type":"heatmap"}],                        {"plot_bgcolor":"#fff","title":{"text":"Confusion Matrix"},"xaxis":{"constrain":"domain","showgrid":false,"tickmode":"array","ticktext":[" 0"," 1"],"tickvals":[" 0"," 1"],"title":{"text":"predicted"}},"yaxis":{"autorange":"reversed","scaleanchor":"x","scaleratio":1,"showgrid":false,"side":"left","tickmode":"array","ticktext":[" 0"," 1"],"tickvals":[" 0"," 1"],"title":{"standoff":20,"text":"observed"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"font":{"size":20},"showarrow":false,"text":"82.0%","x":" 0","y":" 0"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(41)","x":" 0","y":" 0"},{"font":{"size":20},"showarrow":false,"text":"6.0%","x":" 1","y":" 0"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(3)","x":" 1","y":" 0"},{"font":{"size":20},"showarrow":false,"text":"8.0%","x":" 0","y":" 1"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(4)","x":" 0","y":" 1"},{"font":{"size":20},"showarrow":false,"text":"4.0%","x":" 1","y":" 1"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(2)","x":" 1","y":" 1"}],"margin":{"t":40,"b":40,"l":7,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Precision Plot</h3><h6 class="card-subtitle">Does fraction positive increase with predicted probability?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="deef9432-66ae-4d1a-bb79-ddd0ef962f7c" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("deef9432-66ae-4d1a-bb79-ddd0ef962f7c")) {                    Plotly.newPlot(                        "deef9432-66ae-4d1a-bb79-ddd0ef962f7c",                        [{"name":"counts","width":[0.09000000000000001,0.09000000000000001,0.09000000000000004,0.08999999999999998,0.08999999999999998,0.0900000000000001,0.08999999999999998,0.08999999999999998,0.08999999999999998,0.08999999999999998],"x":[0.05,0.15000000000000002,0.25,0.35000000000000003,0.45,0.55,0.6500000000000001,0.75,0.8500000000000001,0.95],"y":[38,0,0,1,6,0,2,0,1,2],"type":"bar"},{"name":"percentage 1","x":[0.0,null,null,0.363,0.447,null,0.633,null,0.863,1.0],"y":[0.079,null,null,0.0,0.167,null,0.0,null,0.0,1.0],"yaxis":"y2","type":"scatter"}],                        {"plot_bgcolor":"#fff","shapes":[{"type":"line","x0":0.5,"x1":0.5,"xref":"x","y0":0,"y1":1.0,"yref":"y2"}],"title":{"text":"percentage 1 vs predicted probability"},"xaxis":{"title":{"text":"predicted probability"}},"yaxis":{"title":{"text":"counts"}},"yaxis2":{"overlaying":"y","rangemode":"tozero","side":"right","tickfont":{"color":"rgb(148, 103, 189)"},"title":{"font":{"color":"rgb(148, 103, 189)"},"text":"percentage"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"legend":{"orientation":"h","xanchor":"center","y":-0.2,"x":0.5},"margin":{"t":40,"b":40,"l":40,"r":40},"annotations":[{"text":"cutoff=0.5","x":0.5,"y":0.1,"yref":"y2"}]},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Classification Plot</h3><h6 class="card-subtitle">Distribution of labels above and below cutoff</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="95e5c4ed-97a4-480c-9e3b-64f9a6c93aed" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("95e5c4ed-97a4-480c-9e3b-64f9a6c93aed")) {                    Plotly.newPlot(                        "95e5c4ed-97a4-480c-9e3b-64f9a6c93aed",                        [{"hoverinfo":"text","name":"0","text":["<b>41</b> (91.11%)","<b>3</b> (60.00%)","<b>44</b> (88.00%)"],"textposition":"auto","x":["below cutoff","above cutoff","total"],"y":[91.11111111111111,60.0,88.0],"type":"bar"},{"hoverinfo":"text","name":"1","text":["<b>4</b> (8.89%)","<b>2</b> (40.00%)","<b>6</b> (12.00%)"],"textposition":"auto","x":["below cutoff","above cutoff","total"],"y":[8.88888888888889,40.0,12.0],"type":"bar"}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"text":"Percentage above and below cutoff"},"margin":{"t":40,"b":40,"l":40,"r":40},"barmode":"stack","legend":{"orientation":"h","xanchor":"center","y":-0.2,"x":0.5}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">ROC AUC Plot</h3><h6 class="card-subtitle">Trade-off between False positives and false negatives</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="357b294b-7086-4104-b829-3203094a8cd9" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("357b294b-7086-4104-b829-3203094a8cd9")) {                    Plotly.newPlot(                        "357b294b-7086-4104-b829-3203094a8cd9",                        [{"hoverinfo":"text","mode":"lines","name":"ROC AUC CURVE","text":["threshold: inf <br> FP: 0.00 <br> TP: 0.00","threshold: 1.00 <br> FP: 0.00 <br> TP: 0.33","threshold: 0.63 <br> FP: 0.07 <br> TP: 0.33","threshold: 0.50 <br> FP: 0.07 <br> TP: 0.50","threshold: 0.36 <br> FP: 0.20 <br> TP: 0.50","threshold: 0.00 <br> FP: 1.00 <br> TP: 1.00"],"x":[0.0,0.0,0.06818181818181818,0.06818181818181818,0.20454545454545456,1.0],"y":[0.0,0.3333333333333333,0.3333333333333333,0.5,0.5,1.0],"type":"scatter"}],                        {"hovermode":"closest","plot_bgcolor":"#fff","title":{"text":"ROC AUC CURVE"},"xaxis":{"constrain":"domain","range":[0,1],"title":{"text":"False Positive Rate"}},"yaxis":{"constrain":"domain","range":[0,1],"scaleanchor":"x","scaleratio":1,"title":{"text":"True Positive Rate"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"align":"right","showarrow":false,"text":"roc-auc-score: 0.69","x":0.6,"xanchor":"left","y":0.4,"yanchor":"top"},{"align":"right","showarrow":false,"text":"cutoff: 0.50","x":0.6,"xanchor":"left","y":0.35,"yanchor":"top"},{"align":"right","showarrow":false,"text":"TPR: 0.50","x":0.6,"xanchor":"left","y":0.3,"yanchor":"top"},{"align":"right","showarrow":false,"text":"FPR: 0.07","x":0.6,"xanchor":"left","y":0.24,"yanchor":"top"}],"shapes":[{"line":{"color":"darkslategray","dash":"dot","width":4},"type":"line","x0":0,"x1":1,"xref":"x","y0":0,"y1":1,"yref":"y"},{"line":{"color":"lightslategray","width":1},"type":"line","x0":0,"x1":1,"xref":"x","y0":0.5,"y1":0.5,"yref":"y"},{"line":{"color":"lightslategray","width":1},"type":"line","x0":0.06818181818181818,"x1":0.06818181818181818,"xref":"x","y0":0,"y1":1,"yref":"y"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">PR AUC Plot</h3><h6 class="card-subtitle">Trade-off between Precision and Recall</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="2cb62e37-714f-46d1-8092-a7a46bb3e4bb" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("2cb62e37-714f-46d1-8092-a7a46bb3e4bb")) {                    Plotly.newPlot(                        "2cb62e37-714f-46d1-8092-a7a46bb3e4bb",                        [{"hoverinfo":"text","mode":"lines","name":"PR AUC CURVE","text":["threshold: 0.00 <br>precision: 0.12 <br>recall: 1.00","threshold: 0.36 <br>precision: 0.25 <br>recall: 0.50","threshold: 0.42 <br>precision: 0.27 <br>recall: 0.50","threshold: 0.42 <br>precision: 0.30 <br>recall: 0.50","threshold: 0.44 <br>precision: 0.33 <br>recall: 0.50","threshold: 0.44 <br>precision: 0.38 <br>recall: 0.50","threshold: 0.47 <br>precision: 0.43 <br>recall: 0.50","threshold: 0.50 <br>precision: 0.50 <br>recall: 0.50","threshold: 0.63 <br>precision: 0.40 <br>recall: 0.33","threshold: 0.63 <br>precision: 0.50 <br>recall: 0.33","threshold: 0.86 <br>precision: 0.67 <br>recall: 0.33","threshold: 1.00 <br>precision: 1.00 <br>recall: 0.33"],"x":[0.12,0.25,0.2727272727272727,0.3,0.3333333333333333,0.375,0.42857142857142855,0.5,0.4,0.5,0.6666666666666666,1.0,1.0],"y":[1.0,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.0],"type":"scatter"}],                        {"hovermode":"closest","plot_bgcolor":"#fff","title":{"text":"PR AUC CURVE"},"xaxis":{"constrain":"domain","range":[0,1],"title":{"text":"Precision"}},"yaxis":{"constrain":"domain","range":[0,1],"scaleanchor":"x","scaleratio":1,"title":{"text":"Recall"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"align":"right","showarrow":false,"text":"pr-auc-score: 0.48","x":0.15,"xanchor":"left","y":0.4,"yanchor":"top"},{"align":"right","showarrow":false,"text":"cutoff: 0.50","x":0.15,"xanchor":"left","y":0.35,"yanchor":"top"},{"align":"right","showarrow":false,"text":"precision: 0.50","x":0.15,"xanchor":"left","y":0.3,"yanchor":"top"},{"align":"right","showarrow":false,"text":"recall: 0.50","x":0.15,"xanchor":"left","y":0.25,"yanchor":"top"}],"shapes":[{"line":{"color":"lightslategray","width":1},"type":"line","x0":0,"x1":1,"xref":"x","y0":0.5,"y1":0.5,"yref":"y"},{"line":{"color":"lightslategray","width":1},"type":"line","x0":0.5,"x1":0.5,"xref":"x","y0":0,"y1":1,"yref":"y"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Lift Curve</h3><h6 class="card-subtitle">Performance how much better than random?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="cb0bbb25-00e1-4c8b-86c5-337a5a49dd1f" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("cb0bbb25-00e1-4c8b-86c5-337a5a49dd1f")) {                    Plotly.newPlot(                        "cb0bbb25-00e1-4c8b-86c5-337a5a49dd1f",                        [{"hoverinfo":"text","name":"perfect","text":["0%, 0%","12.00%, 100%","100, 100%"],"x":[0.0,12.0,100],"y":[0.0,100,100],"type":"scatter"},{"hoverinfo":"text","name":"model","text":["model selected 16.67% of all positives in first 2.00% sampled<br>precision=100.00% positives in sample<br>lift=8.33","model selected 33.33% of all positives in first 4.00% sampled<br>precision=100.00% positives in sample<br>lift=8.33","model selected 33.33% of all positives in first 6.00% sampled<br>precision=66.67% positives in sample<br>lift=5.56","model selected 33.33% of all positives in first 8.00% sampled<br>precision=50.00% positives in sample<br>lift=4.17","model selected 33.33% of all positives in first 10.00% sampled<br>precision=40.00% positives in sample<br>lift=3.33","model selected 50.00% of all positives in first 12.00% sampled<br>precision=50.00% positives in sample<br>lift=4.17","model selected 50.00% of all positives in first 14.00% sampled<br>precision=42.86% positives in sample<br>lift=3.57","model selected 50.00% of all positives in first 16.00% sampled<br>precision=37.50% positives in sample<br>lift=3.12","model selected 50.00% of all positives in first 18.00% sampled<br>precision=33.33% positives in sample<br>lift=2.78","model selected 50.00% of all positives in first 20.00% sampled<br>precision=30.00% positives in sample<br>lift=2.50","model selected 50.00% of all positives in first 22.00% sampled<br>precision=27.27% positives in sample<br>lift=2.27","model selected 50.00% of all positives in first 24.00% sampled<br>precision=25.00% positives in sample<br>lift=2.08","model selected 50.00% of all positives in first 26.00% sampled<br>precision=23.08% positives in sample<br>lift=1.92","model selected 66.67% of all positives in first 28.00% sampled<br>precision=28.57% positives in sample<br>lift=2.38","model selected 66.67% of all positives in first 30.00% sampled<br>precision=26.67% positives in sample<br>lift=2.22","model selected 66.67% of all positives in first 32.00% sampled<br>precision=25.00% positives in sample<br>lift=2.08","model selected 66.67% of all positives in first 34.00% sampled<br>precision=23.53% positives in sample<br>lift=1.96","model selected 66.67% of all positives in first 36.00% sampled<br>precision=22.22% positives in sample<br>lift=1.85","model selected 66.67% of all positives in first 38.00% sampled<br>precision=21.05% positives in sample<br>lift=1.75","model selected 66.67% of all positives in first 40.00% sampled<br>precision=20.00% positives in sample<br>lift=1.67","model selected 66.67% of all positives in first 42.00% sampled<br>precision=19.05% positives in sample<br>lift=1.59","model selected 66.67% of all positives in first 44.00% sampled<br>precision=18.18% positives in sample<br>lift=1.52","model selected 66.67% of all positives in first 46.00% sampled<br>precision=17.39% positives in sample<br>lift=1.45","model selected 66.67% of all positives in first 48.00% sampled<br>precision=16.67% positives in sample<br>lift=1.39","model selected 66.67% of all positives in first 50.00% sampled<br>precision=16.00% positives in sample<br>lift=1.33","model selected 66.67% of all positives in first 52.00% sampled<br>precision=15.38% positives in sample<br>lift=1.28","model selected 66.67% of all positives in first 54.00% sampled<br>precision=14.81% positives in sample<br>lift=1.23","model selected 66.67% of all positives in first 56.00% sampled<br>precision=14.29% positives in sample<br>lift=1.19","model selected 66.67% of all positives in first 58.00% sampled<br>precision=13.79% positives in sample<br>lift=1.15","model selected 66.67% of all positives in first 60.00% sampled<br>precision=13.33% positives in sample<br>lift=1.11","model selected 66.67% of all positives in first 62.00% sampled<br>precision=12.90% positives in sample<br>lift=1.08","model selected 66.67% of all positives in first 64.00% sampled<br>precision=12.50% positives in sample<br>lift=1.04","model selected 66.67% of all positives in first 66.00% sampled<br>precision=12.12% positives in sample<br>lift=1.01","model selected 66.67% of all positives in first 68.00% sampled<br>precision=11.76% positives in sample<br>lift=0.98","model selected 66.67% of all positives in first 70.00% sampled<br>precision=11.43% positives in sample<br>lift=0.95","model selected 66.67% of all positives in first 72.00% sampled<br>precision=11.11% positives in sample<br>lift=0.93","model selected 66.67% of all positives in first 74.00% sampled<br>precision=10.81% positives in sample<br>lift=0.90","model selected 66.67% of all positives in first 76.00% sampled<br>precision=10.53% positives in sample<br>lift=0.88","model selected 66.67% of all positives in first 78.00% sampled<br>precision=10.26% positives in sample<br>lift=0.85","model selected 66.67% of all positives in first 80.00% sampled<br>precision=10.00% positives in sample<br>lift=0.83","model selected 66.67% of all positives in first 82.00% sampled<br>precision=9.76% positives in sample<br>lift=0.81","model selected 66.67% of all positives in first 84.00% sampled<br>precision=9.52% positives in sample<br>lift=0.79","model selected 66.67% of all positives in first 86.00% sampled<br>precision=9.30% positives in sample<br>lift=0.78","model selected 66.67% of all positives in first 88.00% sampled<br>precision=9.09% positives in sample<br>lift=0.76","model selected 66.67% of all positives in first 90.00% sampled<br>precision=8.89% positives in sample<br>lift=0.74","model selected 66.67% of all positives in first 92.00% sampled<br>precision=8.70% positives in sample<br>lift=0.72","model selected 83.33% of all positives in first 94.00% sampled<br>precision=10.64% positives in sample<br>lift=0.89","model selected 100.00% of all positives in first 96.00% sampled<br>precision=12.50% positives in sample<br>lift=1.04","model selected 100.00% of all positives in first 98.00% sampled<br>precision=12.24% positives in sample<br>lift=1.02","model selected 100.00% of all positives in first 100.00% sampled<br>precision=12.00% positives in sample<br>lift=1.00"],"x":[2.0,4.0,6.0,8.0,10.0,12.0,14.0,16.0,18.0,20.0,22.0,24.0,26.0,28.0,30.0,32.0,34.0,36.0,38.0,40.0,42.0,44.0,46.0,48.0,50.0,52.0,54.0,56.0,58.0,60.0,62.0,64.0,66.0,68.0,70.0,72.0,74.0,76.0,78.0,80.0,82.0,84.0,86.0,88.0,90.0,92.0,94.0,96.0,98.0,100.0],"y":[16.670000076293945,33.33000183105469,33.33000183105469,33.33000183105469,33.33000183105469,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,66.66999816894531,83.33000183105469,100.0,100.0,100.0],"type":"scatter"},{"hoverinfo":"text","name":"random","text":["random selected 2.00% of all positives in first 2.00% sampled<br>precision=12.00% positives in sample","random selected 4.00% of all positives in first 4.00% sampled<br>precision=12.00% positives in sample","random selected 6.00% of all positives in first 6.00% sampled<br>precision=12.00% positives in sample","random selected 8.00% of all positives in first 8.00% sampled<br>precision=12.00% positives in sample","random selected 10.00% of all positives in first 10.00% sampled<br>precision=12.00% positives in sample","random selected 12.00% of all positives in first 12.00% sampled<br>precision=12.00% positives in sample","random selected 14.00% of all positives in first 14.00% sampled<br>precision=12.00% positives in sample","random selected 16.00% of all positives in first 16.00% sampled<br>precision=12.00% positives in sample","random selected 18.00% of all positives in first 18.00% sampled<br>precision=12.00% positives in sample","random selected 20.00% of all positives in first 20.00% sampled<br>precision=12.00% positives in sample","random selected 22.00% of all positives in first 22.00% sampled<br>precision=12.00% positives in sample","random selected 24.00% of all positives in first 24.00% sampled<br>precision=12.00% positives in sample","random selected 26.00% of all positives in first 26.00% sampled<br>precision=12.00% positives in sample","random selected 28.00% of all positives in first 28.00% sampled<br>precision=12.00% positives in sample","random selected 30.00% of all positives in first 30.00% sampled<br>precision=12.00% positives in sample","random selected 32.00% of all positives in first 32.00% sampled<br>precision=12.00% positives in sample","random selected 34.00% of all positives in first 34.00% sampled<br>precision=12.00% positives in sample","random selected 36.00% of all positives in first 36.00% sampled<br>precision=12.00% positives in sample","random selected 38.00% of all positives in first 38.00% sampled<br>precision=12.00% positives in sample","random selected 40.00% of all positives in first 40.00% sampled<br>precision=12.00% positives in sample","random selected 42.00% of all positives in first 42.00% sampled<br>precision=12.00% positives in sample","random selected 44.00% of all positives in first 44.00% sampled<br>precision=12.00% positives in sample","random selected 46.00% of all positives in first 46.00% sampled<br>precision=12.00% positives in sample","random selected 48.00% of all positives in first 48.00% sampled<br>precision=12.00% positives in sample","random selected 50.00% of all positives in first 50.00% sampled<br>precision=12.00% positives in sample","random selected 52.00% of all positives in first 52.00% sampled<br>precision=12.00% positives in sample","random selected 54.00% of all positives in first 54.00% sampled<br>precision=12.00% positives in sample","random selected 56.00% of all positives in first 56.00% sampled<br>precision=12.00% positives in sample","random selected 58.00% of all positives in first 58.00% sampled<br>precision=12.00% positives in sample","random selected 60.00% of all positives in first 60.00% sampled<br>precision=12.00% positives in sample","random selected 62.00% of all positives in first 62.00% sampled<br>precision=12.00% positives in sample","random selected 64.00% of all positives in first 64.00% sampled<br>precision=12.00% positives in sample","random selected 66.00% of all positives in first 66.00% sampled<br>precision=12.00% positives in sample","random selected 68.00% of all positives in first 68.00% sampled<br>precision=12.00% positives in sample","random selected 70.00% of all positives in first 70.00% sampled<br>precision=12.00% positives in sample","random selected 72.00% of all positives in first 72.00% sampled<br>precision=12.00% positives in sample","random selected 74.00% of all positives in first 74.00% sampled<br>precision=12.00% positives in sample","random selected 76.00% of all positives in first 76.00% sampled<br>precision=12.00% positives in sample","random selected 78.00% of all positives in first 78.00% sampled<br>precision=12.00% positives in sample","random selected 80.00% of all positives in first 80.00% sampled<br>precision=12.00% positives in sample","random selected 82.00% of all positives in first 82.00% sampled<br>precision=12.00% positives in sample","random selected 84.00% of all positives in first 84.00% sampled<br>precision=12.00% positives in sample","random selected 86.00% of all positives in first 86.00% sampled<br>precision=12.00% positives in sample","random selected 88.00% of all positives in first 88.00% sampled<br>precision=12.00% positives in sample","random selected 90.00% of all positives in first 90.00% sampled<br>precision=12.00% positives in sample","random selected 92.00% of all positives in first 92.00% sampled<br>precision=12.00% positives in sample","random selected 94.00% of all positives in first 94.00% sampled<br>precision=12.00% positives in sample","random selected 96.00% of all positives in first 96.00% sampled<br>precision=12.00% positives in sample","random selected 98.00% of all positives in first 98.00% sampled<br>precision=12.00% positives in sample","random selected 100.00% of all positives in first 100.00% sampled<br>precision=12.00% positives in sample"],"x":[2.0,4.0,6.0,8.0,10.0,12.0,14.0,16.0,18.0,20.0,22.0,24.0,26.0,28.0,30.0,32.0,34.0,36.0,38.0,40.0,42.0,44.0,46.0,48.0,50.0,52.0,54.0,56.0,58.0,60.0,62.0,64.0,66.0,68.0,70.0,72.0,74.0,76.0,78.0,80.0,82.0,84.0,86.0,88.0,90.0,92.0,94.0,96.0,98.0,100.0],"y":[2.0,4.0,6.0,8.0,10.0,12.0,14.0,16.0,18.0,20.0,22.0,24.0,26.0,28.0,30.0,32.0,34.0,36.0,38.0,40.0,42.0,44.0,46.0,48.0,50.0,52.0,54.0,56.0,58.0,60.0,62.0,64.0,66.0,68.0,70.0,72.0,74.0,76.0,78.0,80.0,82.0,84.0,86.0,88.0,90.0,92.0,94.0,96.0,98.0,100.0],"type":"scatter"}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"font":{"size":18},"text":"Lift curve","x":0.5},"xaxis":{"title":{"text":"Percentage sampled"},"spikemode":"across","range":[0,100]},"yaxis":{"title":{"text":"Percentage of positive"}},"hovermode":"x","plot_bgcolor":"#fff","legend":{"xanchor":"center","y":0.9,"x":0.1},"shapes":[{"type":"line","x0":10.0,"x1":10.0,"xref":"x","y0":0,"y1":100.0,"yref":"y"}],"annotations":[{"text":"cutoff=0.50","x":10.0,"y":5,"yref":"y"},{"align":"right","showarrow":false,"text":"Model: 2 out 5 (40.00%)","x":0.5,"xanchor":"left","xref":"paper","y":0.4,"yanchor":"top","yref":"paper"},{"align":"right","showarrow":false,"text":"Random: 0 out 5 (12.00%)","x":0.5,"xanchor":"left","xref":"paper","y":0.33,"yanchor":"top","yref":"paper"},{"align":"right","showarrow":false,"text":"Lift: 3.3","x":0.5,"xanchor":"left","xref":"paper","y":0.26,"yanchor":"top","yref":"paper"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Cumulative Precision</h3><h6 class="card-subtitle">Expected distribution for highest scores</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="08e90542-c6db-4113-bb4b-8e14cf558952" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("08e90542-c6db-4113-bb4b-8e14cf558952")) {                    Plotly.newPlot(                        "08e90542-c6db-4113-bb4b-8e14cf558952",                        [{"hoverinfo":"text","showlegend":false,"text":["percentage sampled = top 2.00%","percentage sampled = top 4.00%","percentage sampled = top 6.00%","percentage sampled = top 8.00%","percentage sampled = top 10.00%","percentage sampled = top 12.00%","percentage sampled = top 14.00%","percentage sampled = top 16.00%","percentage sampled = top 18.00%","percentage sampled = top 20.00%","percentage sampled = top 22.00%","percentage sampled = top 24.00%","percentage sampled = top 26.00%","percentage sampled = top 28.00%","percentage sampled = top 30.00%","percentage sampled = top 32.00%","percentage sampled = top 34.00%","percentage sampled = top 36.00%","percentage sampled = top 38.00%","percentage sampled = top 40.00%","percentage sampled = top 42.00%","percentage sampled = top 44.00%","percentage sampled = top 46.00%","percentage sampled = top 48.00%","percentage sampled = top 50.00%","percentage sampled = top 52.00%","percentage sampled = top 54.00%","percentage sampled = top 56.00%","percentage sampled = top 58.00%","percentage sampled = top 60.00%","percentage sampled = top 62.00%","percentage sampled = top 64.00%","percentage sampled = top 66.00%","percentage sampled = top 68.00%","percentage sampled = top 70.00%","percentage sampled = top 72.00%","percentage sampled = top 74.00%","percentage sampled = top 76.00%","percentage sampled = top 78.00%","percentage sampled = top 80.00%","percentage sampled = top 82.00%","percentage sampled = top 84.00%","percentage sampled = top 86.00%","percentage sampled = top 88.00%","percentage sampled = top 90.00%","percentage sampled = top 92.00%","percentage sampled = top 94.00%","percentage sampled = top 96.00%","percentage sampled = top 98.00%","percentage sampled = top 100.00%"],"x":[2.0,4.0,6.0,8.0,10.0,12.0,14.0,16.0,18.0,20.0,22.0,24.0,26.0,28.0,30.0,32.0,34.0,36.0,38.0,40.0,42.0,44.0,46.0,48.0,50.0,52.0,54.0,56.0,58.0,60.0,62.0,64.0,66.0,68.0,70.0,72.0,74.0,76.0,78.0,80.0,82.0,84.0,86.0,88.0,90.0,92.0,94.0,96.0,98.0,100.0],"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"type":"scatter"},{"fill":"tozeroy","hoverinfo":"text","name":"1","text":["percentage 1=100.00%","percentage 1=100.00%","percentage 1=66.67%","percentage 1=50.00%","percentage 1=40.00%","percentage 1=50.00%","percentage 1=42.86%","percentage 1=37.50%","percentage 1=33.33%","percentage 1=30.00%","percentage 1=27.27%","percentage 1=25.00%","percentage 1=23.08%","percentage 1=28.57%","percentage 1=26.67%","percentage 1=25.00%","percentage 1=23.53%","percentage 1=22.22%","percentage 1=21.05%","percentage 1=20.00%","percentage 1=19.05%","percentage 1=18.18%","percentage 1=17.39%","percentage 1=16.67%","percentage 1=16.00%","percentage 1=15.38%","percentage 1=14.81%","percentage 1=14.29%","percentage 1=13.79%","percentage 1=13.33%","percentage 1=12.90%","percentage 1=12.50%","percentage 1=12.12%","percentage 1=11.76%","percentage 1=11.43%","percentage 1=11.11%","percentage 1=10.81%","percentage 1=10.53%","percentage 1=10.26%","percentage 1=10.00%","percentage 1=9.76%","percentage 1=9.52%","percentage 1=9.30%","percentage 1=9.09%","percentage 1=8.89%","percentage 1=8.70%","percentage 1=10.64%","percentage 1=12.50%","percentage 1=12.24%","percentage 1=12.00%"],"x":[2.0,4.0,6.0,8.0,10.0,12.0,14.0,16.0,18.0,20.0,22.0,24.0,26.0,28.0,30.0,32.0,34.0,36.0,38.0,40.0,42.0,44.0,46.0,48.0,50.0,52.0,54.0,56.0,58.0,60.0,62.0,64.0,66.0,68.0,70.0,72.0,74.0,76.0,78.0,80.0,82.0,84.0,86.0,88.0,90.0,92.0,94.0,96.0,98.0,100.0],"y":[100.0,100.0,66.66666666666667,50.0,40.0,50.0,42.857142857142854,37.5,33.333333333333336,30.0,27.272727272727273,25.0,23.076923076923077,28.571428571428573,26.666666666666668,25.0,23.529411764705884,22.22222222222222,21.05263157894737,20.0,19.047619047619047,18.181818181818183,17.391304347826086,16.666666666666668,16.0,15.384615384615385,14.814814814814815,14.285714285714286,13.793103448275861,13.333333333333334,12.903225806451612,12.5,12.121212121212121,11.764705882352942,11.428571428571429,11.11111111111111,10.81081081081081,10.526315789473685,10.256410256410257,10.0,9.75609756097561,9.523809523809524,9.30232558139535,9.090909090909092,8.88888888888889,8.695652173913043,10.638297872340425,12.5,12.244897959183673,12.0],"type":"scatter"},{"fill":"tonexty","hoverinfo":"text","name":"0","text":["percentage 0=0.00%","percentage 0=0.00%","percentage 0=33.33%","percentage 0=50.00%","percentage 0=60.00%","percentage 0=50.00%","percentage 0=57.14%","percentage 0=62.50%","percentage 0=66.67%","percentage 0=70.00%","percentage 0=72.73%","percentage 0=75.00%","percentage 0=76.92%","percentage 0=71.43%","percentage 0=73.33%","percentage 0=75.00%","percentage 0=76.47%","percentage 0=77.78%","percentage 0=78.95%","percentage 0=80.00%","percentage 0=80.95%","percentage 0=81.82%","percentage 0=82.61%","percentage 0=83.33%","percentage 0=84.00%","percentage 0=84.62%","percentage 0=85.19%","percentage 0=85.71%","percentage 0=86.21%","percentage 0=86.67%","percentage 0=87.10%","percentage 0=87.50%","percentage 0=87.88%","percentage 0=88.24%","percentage 0=88.57%","percentage 0=88.89%","percentage 0=89.19%","percentage 0=89.47%","percentage 0=89.74%","percentage 0=90.00%","percentage 0=90.24%","percentage 0=90.48%","percentage 0=90.70%","percentage 0=90.91%","percentage 0=91.11%","percentage 0=91.30%","percentage 0=89.36%","percentage 0=87.50%","percentage 0=87.76%","percentage 0=88.00%"],"x":[2.0,4.0,6.0,8.0,10.0,12.0,14.0,16.0,18.0,20.0,22.0,24.0,26.0,28.0,30.0,32.0,34.0,36.0,38.0,40.0,42.0,44.0,46.0,48.0,50.0,52.0,54.0,56.0,58.0,60.0,62.0,64.0,66.0,68.0,70.0,72.0,74.0,76.0,78.0,80.0,82.0,84.0,86.0,88.0,90.0,92.0,94.0,96.0,98.0,100.0],"y":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0],"type":"scatter"}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"font":{"size":18},"text":"Cumulative percentage per category<br>when sampling top X%","x":0.5},"xaxis":{"title":{"text":"Top X% model scores"},"spikemode":"across","range":[0,100],"nticks":10},"yaxis":{"title":{"text":"Cumulative precision per category"}},"hovermode":"x","plot_bgcolor":"#fff","shapes":[{"type":"line","x0":9.999999999999998,"x1":9.999999999999998,"xref":"x","y0":0,"y1":100.0,"yref":"y"}],"annotations":[{"ax":60,"text":"percentile=10.00","x":9.999999999999998,"y":20,"yref":"y"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    
+</div>
+
+<div class="tab-pane " id="myTab2"
+     role="tabpanel" aria-labelledby="myTab2-tab"> <div><H1>Individual Predictions</H1></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Select Random Index</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+Selected index: <b>None</b>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Prediction</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+no index selected
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Contributions Plot</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>no index selected</div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Partial Dependence Plot</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="adec5118-3e33-4d83-abf1-35be656d3f55" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("adec5118-3e33-4d83-abf1-35be656d3f55")) {                    Plotly.newPlot(                        "adec5118-3e33-4d83-abf1-35be656d3f55",                        [{"line":{"color":"grey","width":4},"mode":"lines+markers","name":"average prediction <br>for different values of <br>PageValues","x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[12.6,12.63,14.85,36.21],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[63.324547216933404,63.66645045752952,65.51555553959312,100.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,49.91180702240099],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,100.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[49.96869968813436,49.97030349050792,49.98219462203781,100.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,45.73155383245354],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,17.364168665253853],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[63.3170695220561,63.294551488782815,61.90408680266961,50.492995579785514],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[41.71151700647161,42.265773221597215,50.52403578113221,100.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,100.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,51.61506066023026],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,59.1485724186295],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,18.09943819058883],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[36.30765384929743,36.76003429528837,42.269762359147094,100.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,55.00819322189558,60.64687470894581],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[86.33840438067595,86.33629893943622,86.19093766425743,80.46535295145335],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[41.64842586308289,41.65031276619636,41.67094985634572,42.160004352380085],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,100.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,100.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,38.99474306978566,100.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,58.61951317105682],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[44.30394355649843,44.3552040098645,44.77663963649452,48.64619700652964],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[46.871615612989146,46.87447210441539,46.90283983200049,47.42487417431205],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,100.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[0.0,0.0,0.0,0.0],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[43.67856353861382,43.67863447729205,43.683570456755014,44.02573919880874],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.004286465217357796,0.03602594497292505,0.26867417160028],"y":[100.0,100.0,100.0,100.0],"type":"scatter"}],                        {"plot_bgcolor":"#fff","title":{"text":"pdp plot for PageValues"},"xaxis":{"title":{"text":"PageValues"}},"yaxis":{"title":{"text":"Predicted Revenue (Predicted %)"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"showlegend":false,"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Contributions Table</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>no index selected</div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    
+</div>
+
+<div class="tab-pane " id="myTab3"
+     role="tabpanel" aria-labelledby="myTab3-tab"> <div><div><H1>What if...</H1></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Select Random Index</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+Selected index: <b>None</b>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Prediction</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>input data incorrect</div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Feature Input</h3><h6 class="card-subtitle">Adjust the feature values to change the prediction</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+Selected: <b>None</b>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="PageValues">PageValues</label>
+    <input id="PageValues" type="text" value="None" name="PageValues" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="ExitRates">ExitRates</label>
+    <input id="ExitRates" type="text" value="None" name="ExitRates" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Region_3">Region_3</label>
+    <input id="Region_3" type="text" value="None" name="Region_3" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="OperatingSystems_2">OperatingSystems_2</label>
+    <input id="OperatingSystems_2" type="text" value="None" name="OperatingSystems_2" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_4">Browser_4</label>
+    <input id="Browser_4" type="text" value="None" name="Browser_4" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Region_7">Region_7</label>
+    <input id="Region_7" type="text" value="None" name="Region_7" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Region_2">Region_2</label>
+    <input id="Region_2" type="text" value="None" name="Region_2" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Dec">Month_Dec</label>
+    <input id="Month_Dec" type="text" value="None" name="Month_Dec" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="OperatingSystems_4">OperatingSystems_4</label>
+    <input id="OperatingSystems_4" type="text" value="None" name="OperatingSystems_4" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_15">TrafficType_15</label>
+    <input id="TrafficType_15" type="text" value="None" name="TrafficType_15" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_13">Browser_13</label>
+    <input id="Browser_13" type="text" value="None" name="Browser_13" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_5">Browser_5</label>
+    <input id="Browser_5" type="text" value="None" name="Browser_5" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_20">TrafficType_20</label>
+    <input id="TrafficType_20" type="text" value="None" name="TrafficType_20" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_7">TrafficType_7</label>
+    <input id="TrafficType_7" type="text" value="None" name="TrafficType_7" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_9">Browser_9</label>
+    <input id="Browser_9" type="text" value="None" name="Browser_9" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_12">Browser_12</label>
+    <input id="Browser_12" type="text" value="None" name="Browser_12" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_9">TrafficType_9</label>
+    <input id="TrafficType_9" type="text" value="None" name="TrafficType_9" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_16">TrafficType_16</label>
+    <input id="TrafficType_16" type="text" value="None" name="TrafficType_16" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_12">TrafficType_12</label>
+    <input id="TrafficType_12" type="text" value="None" name="TrafficType_12" disabled>
+</div>
+    
+</div>
+        
+<div class="col">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="Administrative">Administrative</label>
+    <input id="Administrative" type="text" value="None" name="Administrative" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Region_1">Region_1</label>
+    <input id="Region_1" type="text" value="None" name="Region_1" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="ProductRelated">ProductRelated</label>
+    <input id="ProductRelated" type="text" value="None" name="ProductRelated" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_May">Month_May</label>
+    <input id="Month_May" type="text" value="None" name="Month_May" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="OperatingSystems_3">OperatingSystems_3</label>
+    <input id="OperatingSystems_3" type="text" value="None" name="OperatingSystems_3" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Region_6">Region_6</label>
+    <input id="Region_6" type="text" value="None" name="Region_6" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Sep">Month_Sep</label>
+    <input id="Month_Sep" type="text" value="None" name="Month_Sep" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_11">TrafficType_11</label>
+    <input id="TrafficType_11" type="text" value="None" name="TrafficType_11" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Administrative_Duration">Administrative_Duration</label>
+    <input id="Administrative_Duration" type="text" value="None" name="Administrative_Duration" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_13">TrafficType_13</label>
+    <input id="TrafficType_13" type="text" value="None" name="TrafficType_13" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_8">Browser_8</label>
+    <input id="Browser_8" type="text" value="None" name="Browser_8" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Region_8">Region_8</label>
+    <input id="Region_8" type="text" value="None" name="Region_8" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_10">TrafficType_10</label>
+    <input id="TrafficType_10" type="text" value="None" name="TrafficType_10" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_7">Browser_7</label>
+    <input id="Browser_7" type="text" value="None" name="Browser_7" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_10">Browser_10</label>
+    <input id="Browser_10" type="text" value="None" name="Browser_10" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="OperatingSystems_7">OperatingSystems_7</label>
+    <input id="OperatingSystems_7" type="text" value="None" name="OperatingSystems_7" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_19">TrafficType_19</label>
+    <input id="TrafficType_19" type="text" value="None" name="TrafficType_19" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_aug">Month_aug</label>
+    <input id="Month_aug" type="text" value="None" name="Month_aug" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_6">TrafficType_6</label>
+    <input id="TrafficType_6" type="text" value="None" name="TrafficType_6" disabled>
+</div>
+    
+</div>
+        
+<div class="col">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Nov">Month_Nov</label>
+    <input id="Month_Nov" type="text" value="None" name="Month_Nov" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_2">TrafficType_2</label>
+    <input id="TrafficType_2" type="text" value="None" name="TrafficType_2" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Mar">Month_Mar</label>
+    <input id="Month_Mar" type="text" value="None" name="Month_Mar" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_3">TrafficType_3</label>
+    <input id="TrafficType_3" type="text" value="None" name="TrafficType_3" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_1">TrafficType_1</label>
+    <input id="TrafficType_1" type="text" value="None" name="TrafficType_1" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="BounceRates">BounceRates</label>
+    <input id="BounceRates" type="text" value="None" name="BounceRates" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_1">Browser_1</label>
+    <input id="Browser_1" type="text" value="None" name="Browser_1" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_6">Browser_6</label>
+    <input id="Browser_6" type="text" value="None" name="Browser_6" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="VisitorType_Returning_Visitor">VisitorType_Returning_Visitor</label>
+    <input id="VisitorType_Returning_Visitor" type="text" value="None" name="VisitorType_Returning_Visitor" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Aug">Month_Aug</label>
+    <input id="Month_Aug" type="text" value="None" name="Month_Aug" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Informational_Duration">Informational_Duration</label>
+    <input id="Informational_Duration" type="text" value="None" name="Informational_Duration" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="OperatingSystems_8">OperatingSystems_8</label>
+    <input id="OperatingSystems_8" type="text" value="None" name="OperatingSystems_8" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Region_5">Region_5</label>
+    <input id="Region_5" type="text" value="None" name="Region_5" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Feb">Month_Feb</label>
+    <input id="Month_Feb" type="text" value="None" name="Month_Feb" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_June">Month_June</label>
+    <input id="Month_June" type="text" value="None" name="Month_June" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="OperatingSystems_5">OperatingSystems_5</label>
+    <input id="OperatingSystems_5" type="text" value="None" name="OperatingSystems_5" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_18">TrafficType_18</label>
+    <input id="TrafficType_18" type="text" value="None" name="TrafficType_18" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_14">TrafficType_14</label>
+    <input id="TrafficType_14" type="text" value="None" name="TrafficType_14" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_8">TrafficType_8</label>
+    <input id="TrafficType_8" type="text" value="None" name="TrafficType_8" disabled>
+</div>
+    
+</div>
+        
+<div class="col">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="Weekend">Weekend</label>
+    <input id="Weekend" type="text" value="None" name="Weekend" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_2">Browser_2</label>
+    <input id="Browser_2" type="text" value="None" name="Browser_2" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="OperatingSystems_1">OperatingSystems_1</label>
+    <input id="OperatingSystems_1" type="text" value="None" name="OperatingSystems_1" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_4">TrafficType_4</label>
+    <input id="TrafficType_4" type="text" value="None" name="TrafficType_4" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Informational">Informational</label>
+    <input id="Informational" type="text" value="None" name="Informational" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Oct">Month_Oct</label>
+    <input id="Month_Oct" type="text" value="None" name="Month_Oct" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Region_4">Region_4</label>
+    <input id="Region_4" type="text" value="None" name="Region_4" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="ProductRelated_Duration">ProductRelated_Duration</label>
+    <input id="ProductRelated_Duration" type="text" value="None" name="ProductRelated_Duration" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="VisitorType_New_Visitor">VisitorType_New_Visitor</label>
+    <input id="VisitorType_New_Visitor" type="text" value="None" name="VisitorType_New_Visitor" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="SpecialDay">SpecialDay</label>
+    <input id="SpecialDay" type="text" value="None" name="SpecialDay" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="VisitorType_Other">VisitorType_Other</label>
+    <input id="VisitorType_Other" type="text" value="None" name="VisitorType_Other" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_3">Browser_3</label>
+    <input id="Browser_3" type="text" value="None" name="Browser_3" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Region_9">Region_9</label>
+    <input id="Region_9" type="text" value="None" name="Region_9" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Jul">Month_Jul</label>
+    <input id="Month_Jul" type="text" value="None" name="Month_Jul" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser_11">Browser_11</label>
+    <input id="Browser_11" type="text" value="None" name="Browser_11" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="OperatingSystems_6">OperatingSystems_6</label>
+    <input id="OperatingSystems_6" type="text" value="None" name="OperatingSystems_6" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_17">TrafficType_17</label>
+    <input id="TrafficType_17" type="text" value="None" name="TrafficType_17" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType_5">TrafficType_5</label>
+    <input id="TrafficType_5" type="text" value="None" name="TrafficType_5" disabled>
+</div>
+    
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Contributions Plot</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>input data incorrect</div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Partial Dependence Plot</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>input data incorrect</div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Contributions Table</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>input data incorrect</div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    </div>
+</div>
+
+<div class="tab-pane " id="myTab4"
+     role="tabpanel" aria-labelledby="myTab4-tab"> <div><H1>Feature Dependence</H1></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Shap Summary</h3><h6 class="card-subtitle">Ordering features by shap value</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="95d34202-b095-41b7-9da4-c1a6b0e37451" class="plotly-graph-div" style="height:1700px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("95d34202-b095-41b7-9da4-c1a6b0e37451")) {                    Plotly.newPlot(                        "95d34202-b095-41b7-9da4-c1a6b0e37451",                        [{"hoverinfo":"text","orientation":"h","x":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.00185920756431864,0.0019009770720588356,0.00212349736985292,0.0022536831475927633,0.0022694626567183415,0.0022767632049417335,0.002284791937269874,0.0024349270514787648,0.0024558459339669133,0.0024612320953934313,0.002481695182326227,0.0026049217757097465,0.002782032199485377,0.0029236254913719306,0.0029867717313264365,0.0033191494237974,0.0033637460395794616,0.003477627821084997,0.0036736088580057885,0.003759590287759913,0.004152249175529331,0.004272323187813257,0.0052117543727657305,0.005237076226108455,0.005493251121535714,0.0055083426154884105,0.005902403839705817,0.005968905556701317,0.006270662290839441,0.007193645256816586,0.007326158340055697,0.007532666845084569,0.007574906358007398,0.008149725801245533,0.00860285738530034,0.008625792459681099,0.008642333513106476,0.009692555863808515,0.009925719390389895,0.009985481344981067,0.010278490638518004,0.010533326532210476,0.011843985148291072,0.012035925017601415,0.01427262641648423,0.016433852167627983,0.016850555459698827,0.019491502004000728,0.020920445812965455,0.021828229808476055,0.029790074842603046,0.033349477123283136],"y":["75. TrafficType_8","74. TrafficType_7","73. Browser_7","72. Month_Feb","71. Browser_9","70. Browser_10","69. Month_June","68. Browser_11","67. Browser_12","66. OperatingSystems_7","65. OperatingSystems_5","64. Month_Jul","63. TrafficType_9","62. OperatingSystems_6","61. TrafficType_12","60. TrafficType_5","59. TrafficType_14","58. TrafficType_6","57. TrafficType_16","56. TrafficType_17","55. TrafficType_18","54. TrafficType_19","53. Month_aug","52. Region_9","51. Region_5","50. TrafficType_10","49. TrafficType_20","48. Browser_3","47. OperatingSystems_8","46. Region_8","45. Browser_5","44. VisitorType_Other","43. Informational_Duration","42. Browser_8","41. Browser_13","40. SpecialDay","39. Month_Aug","38. TrafficType_13","37. TrafficType_15","36. VisitorType_New_Visitor","35. VisitorType_Returning_Visitor","34. Administrative_Duration","33. OperatingSystems_4","32. ProductRelated_Duration","31. Browser_6","30. TrafficType_11","29. Month_Dec","28. Region_4","27. Browser_1","26. Month_Sep","25. Region_2","24. Month_Oct","23. BounceRates","22. Region_6","21. Region_7","20. Informational","19. TrafficType_1","18. OperatingSystems_3","17. Browser_4","16. TrafficType_4","15. TrafficType_3","14. Month_May","13. OperatingSystems_2","12. OperatingSystems_1","11. Month_Mar","10. ProductRelated","9. Region_3","8. Browser_2","7. TrafficType_2","6. Region_1","5. ExitRates","4. Weekend","3. Month_Nov","2. Administrative","1. PageValues"],"type":"bar"}],                        {"plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Average impact on predicted Revenue<br>(mean absolute SHAP value)"},"template":{"data":{"scatter":[{"type":"scatter"}]}},"yaxis":{"automargin":true},"xaxis":{"automargin":true,"title":{"text":""}},"height":1700,"margin":{"b":40,"l":203,"pad":4,"r":40,"t":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Shap Dependence</h3><h6 class="card-subtitle">Relationship between feature value and SHAP value</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="6d132c76-9c24-456f-bfe3-96b88d78d7e4" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("6d132c76-9c24-456f-bfe3-96b88d78d7e4")) {                    Plotly.newPlot(                        "6d132c76-9c24-456f-bfe3-96b88d78d7e4",                        [{"hoverinfo":"text","marker":{"color":[0.1111111111111111,0.2222222222222222,0.037037037037037035,0.07407407407407407,0.6666666666666666,0.037037037037037035,0.0,0.0,0.2962962962962963,0.2222222222222222,0.0,0.14814814814814814,0.0,0.07407407407407407,0.0,0.0,0.0,0.0,0.14814814814814814,0.07407407407407407,0.037037037037037035,0.0,0.1111111111111111,0.2962962962962963,0.0,0.18518518518518517,0.0,0.0,0.0,0.0,0.0,0.5925925925925926,0.3333333333333333,0.14814814814814814,0.0,0.0,0.14814814814814814,0.07407407407407407,0.07407407407407407,0.18518518518518517,0.0,0.0,0.07407407407407407,0.2962962962962963,0.0,0.18518518518518517,0.07407407407407407,0.48148148148148145,0.0,0.14814814814814814],"colorbar":{"title":{"text":"Administrative"}},"colorscale":[[0.0,"rgb(0,0,255)"],[1.0,"rgb(255,0,0)"]],"opacity":0.6,"showscale":true,"size":7},"mode":"markers","text":["None=0<br>PageValues=0.0<br>Administrative=0.1111111111111111<br>SHAP=-0.018","None=1<br>PageValues=0.00576679819277378<br>Administrative=0.2222222222222222<br>SHAP=-0.015","None=2<br>PageValues=0.009539574350029686<br>Administrative=0.037037037037037035<br>SHAP=-0.021","None=3<br>PageValues=0.10137083889998319<br>Administrative=0.07407407407407407<br>SHAP=0.134","None=4<br>PageValues=0.028058764724978646<br>Administrative=0.6666666666666666<br>SHAP=-0.006","None=5<br>PageValues=0.0<br>Administrative=0.037037037037037035<br>SHAP=-0.013","None=6<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.009","None=7<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.017","None=8<br>PageValues=0.13470105108949837<br>Administrative=0.2962962962962963<br>SHAP=0.108","None=9<br>PageValues=0.0<br>Administrative=0.2222222222222222<br>SHAP=-0.022","None=10<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.025","None=11<br>PageValues=0.0<br>Administrative=0.14814814814814814<br>SHAP=-0.014","None=12<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.054","None=13<br>PageValues=0.0<br>Administrative=0.07407407407407407<br>SHAP=-0.026","None=14<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.009","None=15<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.023","None=16<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.013","None=17<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.019","None=18<br>PageValues=0.0<br>Administrative=0.14814814814814814<br>SHAP=-0.018","None=19<br>PageValues=0.0<br>Administrative=0.07407407407407407<br>SHAP=-0.011","None=20<br>PageValues=0.0<br>Administrative=0.037037037037037035<br>SHAP=-0.031","None=21<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.017","None=22<br>PageValues=0.0<br>Administrative=0.1111111111111111<br>SHAP=-0.017","None=23<br>PageValues=0.0<br>Administrative=0.2962962962962963<br>SHAP=-0.025","None=24<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.049","None=25<br>PageValues=0.0<br>Administrative=0.18518518518518517<br>SHAP=-0.014","None=26<br>PageValues=0.024597873319929853<br>Administrative=0.0<br>SHAP=-0.005","None=27<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.015","None=28<br>PageValues=0.26867417160028<br>Administrative=0.0<br>SHAP=0.472","None=29<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.032","None=30<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.007","None=31<br>PageValues=0.07582875753641136<br>Administrative=0.5925925925925926<br>SHAP=0.034","None=32<br>PageValues=0.027962985004716966<br>Administrative=0.3333333333333333<br>SHAP=0.000","None=33<br>PageValues=0.0<br>Administrative=0.14814814814814814<br>SHAP=-0.012","None=34<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.013","None=35<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.024","None=36<br>PageValues=0.0<br>Administrative=0.14814814814814814<br>SHAP=-0.028","None=37<br>PageValues=0.0<br>Administrative=0.07407407407407407<br>SHAP=-0.011","None=38<br>PageValues=0.0<br>Administrative=0.07407407407407407<br>SHAP=-0.021","None=39<br>PageValues=0.0814292536208422<br>Administrative=0.18518518518518517<br>SHAP=0.066","None=40<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.006","None=41<br>PageValues=0.04239968917128231<br>Administrative=0.0<br>SHAP=0.009","None=42<br>PageValues=0.0<br>Administrative=0.07407407407407407<br>SHAP=-0.022","None=43<br>PageValues=0.0<br>Administrative=0.2962962962962963<br>SHAP=-0.018","None=44<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.010","None=45<br>PageValues=0.0<br>Administrative=0.18518518518518517<br>SHAP=-0.018","None=46<br>PageValues=0.0<br>Administrative=0.07407407407407407<br>SHAP=-0.038","None=47<br>PageValues=0.004101423595430806<br>Administrative=0.48148148148148145<br>SHAP=-0.011","None=48<br>PageValues=0.0<br>Administrative=0.0<br>SHAP=-0.044","None=49<br>PageValues=0.0<br>Administrative=0.14814814814814814<br>SHAP=-0.021"],"x":[0.0,0.00576679819277378,0.009539574350029686,0.10137083889998319,0.028058764724978646,0.0,0.0,0.0,0.13470105108949837,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.024597873319929853,0.0,0.26867417160028,0.0,0.0,0.07582875753641136,0.027962985004716966,0.0,0.0,0.0,0.0,0.0,0.0,0.0814292536208422,0.0,0.04239968917128231,0.0,0.0,0.0,0.0,0.0,0.004101423595430806,0.0,0.0],"y":[-0.017502996597626608,-0.014531873842718937,-0.02139532262588155,0.134150874226742,-0.006025334904776206,-0.01311403334911626,-0.008858386188932324,-0.016896449359827842,0.10828411672219042,-0.021999036745928596,-0.024700773966060824,-0.014052379087924963,-0.05444039335235948,-0.0262446248651243,-0.008837567062430926,-0.02343978060325097,-0.012749473473388312,-0.01883439167298298,-0.018225961407600466,-0.011065785010527664,-0.031089864919699117,-0.01686255032814528,-0.016828715220448265,-0.02461204676410156,-0.04907314102289491,-0.01417337092503948,-0.0046729718400128906,-0.015306014012916827,0.47239363766675707,-0.031977321250276206,-0.007221612558200946,0.034227349939421704,0.0,-0.012046117791918859,-0.013293297278322957,-0.023811429276081236,-0.027981270799811192,-0.011448171899332601,-0.021155734153078865,0.06591919866867808,-0.006004150195430796,0.00867103325128725,-0.022283665253088766,-0.01844896377514396,-0.010377183725494704,-0.018044431845766123,-0.03803462867392056,-0.0108660850080248,-0.04415040585976134,-0.021149937195708554],"type":"scattergl"}],                        {"hovermode":"closest","paper_bgcolor":"#fff","plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Dependence plot for PageValues"},"xaxis":{"title":{"text":"PageValues"}},"yaxis":{"title":{"text":"SHAP value"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    
+</div>
+
+</div>
+<script type="text/javascript">
+var triggerTabList = [].slice.call(document.querySelectorAll('#myTab button'))
+triggerTabList.forEach(function (triggerEl) {
+  var tabTrigger = new bootstrap.Tab(triggerEl)
+
+  triggerEl.addEventListener('click', function (event) {
+    event.preventDefault()
+    tabTrigger.show()
+    window.dispatchEvent(new Event('resize'));
+  })
+})
+</script>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+window.dispatchEvent(new Event('resize'));
+</script>
+        
+</html>
+    
